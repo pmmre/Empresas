@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Empresas</title>
+	<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+	<h1>Empresas para IV</h1>
+
+	<div>
+		<h2> Introducir una nueva empresa </h2>
+		<form method="POST" action="/registrar" id=registrar>
+			{% csrf_token %}
+			Nombre de la empresa:  <input type="text" name="nombre">
+			<input type="submit" value="registar">
+
+		</form>
+
+	  <br/>
+	 
+
+	</div>
+
+
+
+
+	<div>		
+		<h2> Listar las empresas y sus calificaciones </h2>
+		<a href="listar" > Enseñame las calificaciones de las empresas</a>
+
+
+	</div>
+
+
+
+
+	<div>
+		<h2> Crear calificaciones y añadirlas </h2>
+		<form action="/calificar" method="post">
+			{% csrf_token %}
+			  Nombre de la empresa:  <input type="text" name="nombre">
+			  Modificar su calificacion: <input type="number" name="calificacion" min=0 max=10>
+			  
+			  	<input type="submit" value="Recalificar">
+		</form>  
+	</div>
+
+
+
+	<div>
+		<h2> Borrar calificaciones </h2>
+		<form method="POST" action="/borrar" id="borrar">
+			{% csrf_token %}
+			  Nombre de la empresa (borrar calificacion): 
+				<input type="text" name="NB"><br>
+			  
+			  <input type="submit" value="Borrar calificacion">
+		</form>  
+		
+		</div>	
+		
+	</div>
+
+
+	<div>
+		<h2> Ranking de las empresas </h2>
+		<a href="ranking" > Enseñame el ranking de empresas</a>
+
+	</div>
+
+	
+<div>
+		<h2> Borrar Empresa </h2>
+		<form method="POST" action="/borrarEmpresa" id="borrar">
+			{% csrf_token %}
+			  Nombre de la empresa a borrar: 
+				<input type="text" name="NB"><br>
+			  
+			  <input type="submit" value="Borrar empresa">
+		</form>  
+		
+		</div>	
+		
+	</div>
+
+
+</body>
+</html>

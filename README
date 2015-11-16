@@ -1,0 +1,13 @@
+Dentro de la carpeta empresa tengo la app de calificación de empresas programada en Django.
+
+He usado sqlite como base de datos, una básica hoja de estilos y varios templates para cada una de las funcionalidades
+controlados en las vistas con python.
+
+# Probando Travis
+
+[![Build Status](https://travis-ci.org/pmmre/CalificacionEmpresas.svg?branch=master)](https://travis-ci.org/pmmre/CalificacionEmpresas)
+
+
+# Probando snap CI
+
+[![Build Status](https://snap-ci.com/pmmre/CalificacionEmpresas/branch/master/build_image)](https://snap-ci.com/pmmre/CalificacionEmpresas/branch/master)

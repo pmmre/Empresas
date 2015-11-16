@@ -5,7 +5,7 @@ controlados en las vistas con python.
 
 # Probando Travis
 
-[![Build Status](https://travis-ci.org/pmmre/CalificacionEmpresas.svg?branch=master)](https://travis-ci.org/pmmre/CalificacionEmpresas)
+[![Build Status](https://travis-ci.org/pmmre/Empresas.svg)](https://travis-ci.org/pmmre/Empresas)
 
 
 # Probando snap CI

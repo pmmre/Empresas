@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Empresas</title>
+	<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+	<h1>Muestra el ranking de las empresas</h1>
+	<ul>
+		{% for empresa in ordenado %}
+			<li><b>Nombre:</b> {{empresa.nombre}} </li>
+			{% if empresa.calificacion != -1%}
+			<li><b>Calificacion:</b> {{empresa.calificacion}} </li>
+			{% else %}
+			<li><b>Calificacion: </b> Empresa sin calificar </li>
+
+			{% endif %}
+		{% endfor %}
+	</ul>
+
+	<a href="../"> mandame a inicio</a>
+
+</body>
+</html>

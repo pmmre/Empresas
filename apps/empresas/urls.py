@@ -1,5 +1,5 @@
 from django.conf.urls import include, url
-from .views import index,registrar,borrar,calificar,listar,ranking,borrarEmpresa
+from .views import index,registrar,borrar,calificar,listar,ranking,borrarEmpresa,modificarCalificacion
 
 urlpatterns = [
 	url(r'^$', index.as_view(), name="empresa"),
@@ -9,4 +9,5 @@ urlpatterns = [
 	url(r'^listar$', listar.as_view(), name="listar"),
 	url(r'^ranking$', ranking.as_view(), name="ranking"),
 	url(r'^borrarEmpresa$', borrarEmpresa.as_view(), name="borrarEmpresa"),
+	url(r'^modificarCalificacion$', modificarCalificacion.as_view(), name="modificarCalificacion"),
 ]

@@ -42,6 +42,18 @@
 			  Nombre de la empresa:  <input type="text" name="nombre">
 			  Modificar su calificacion: <input type="number" name="calificacion" min=0 max=10>
 			  
+			  	<input type="submit" value="Calificar">
+		</form>  
+	</div>
+
+
+	<div>
+		<h2> Modificar calificaciones </h2>
+		<form action="/modificarCalificacion" method="post">
+			{% csrf_token %}
+			  Nombre de la empresa:  <input type="text" name="nombre">
+			  Modificar su calificacion: <input type="number" name="calificacion" min=0 max=10>
+			  
 			  	<input type="submit" value="Recalificar">
 		</form>  
 	</div>

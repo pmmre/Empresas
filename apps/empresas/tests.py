@@ -63,7 +63,7 @@ class TestStringMethods(unittest.TestCase):
 			se ha eliminado la calificacion (en mi caso -1) y vuelvo a
 			llamar a borrar para saber si hace una peticion bien aunque
 			ya este la calificacion a -1.
-		"""
+"""		
 		c = Client()
 
 		emp = Empresa(nombre="Mercadona",calificacion="8")
@@ -79,6 +79,39 @@ class TestStringMethods(unittest.TestCase):
 
 		response = c.post(reverse('borrar'),{'NB':"Mercadona"})
 		self.assertEqual(response.status_code, 200)
+
+
+
+	def test_funciona_modificar_calificacion(self):
+		"""
+			Test que comprueba que funcina correctamente la opcion de
+			modificar.
+"""
+		c = Client()
+
+		emp = Empresa(nombre="Mercadona2",calificacion=-1)
+		emp.save()
+		emp = Empresa.objects.get(nombre="Mercadona2")
+		self.assertEqual(emp.nombre,"Mercadona2")
+		self.assertEqual(emp.calificacion,-1)
+
+		response = c.post(reverse('modificarCalificacion'),{'nombre':"Mercadona2",'calificacion':9})
+		self.assertEqual(response.status_code, 200)
+		emp = Empresa.objects.get(nombre="Mercadona2")
+		self.assertEqual(emp.calificacion,-1)
+
+		response = c.post(reverse('calificar'),{'nombre':"Mercadona2",'calificacion':9})
+		self.assertEqual(response.status_code, 200)
+		emp = Empresa.objects.get(nombre="Mercadona2")
+		self.assertEqual(emp.calificacion,9)
+
+
+		response = c.post(reverse('modificarCalificacion'),{'nombre':"Mercadona2",'calificacion':10})
+		self.assertEqual(response.status_code, 200)
+		emp = Empresa.objects.get(nombre="Mercadona2")
+		self.assertEqual(emp.calificacion,10)
+
+
 
 
 

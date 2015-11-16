@@ -83,6 +83,32 @@ class calificar(ListView):
 		
 		return render(request,'empresas/calificar.html',{'salida':salida})
 
+class modificarCalificacion(ListView):
+	template_name = 'empresas/modificarCalificacion.html'
+	model = Empresa
+	#fields = ['nombre','calificacion']
+	success_url = reverse_lazy('empresa')
+
+	def post(self, request, *args, **kwargs):
+		nombre_empresa = request.POST['nombre']
+		calificacion2 = request.POST['calificacion']
+		if Empresa.objects.filter(nombre=nombre_empresa): 
+			emp = Empresa.objects.get(nombre=nombre_empresa)
+			if emp.calificacion!=-1:
+				if int(calificacion2)>=0 or int(calificacion2)<=10:
+					emp.calificacion=calificacion2
+					emp.save()
+					salida="La empresa "+nombre_empresa+" ha sido calificada con un "+calificacion2+"."
+				else:
+					salida="La calificacion debe de estar entre 0 y 10."
+			else:
+				salida="La empresa "+nombre_empresa+" no ha sido calificada"			
+		else:
+			salida="La empresa "+nombre_empresa+" no existe."
+
+		
+		return render(request,'empresas/calificar.html',{'salida':salida})
+
 
 class listar(ListView):
 	template_name = 'empresas/listar.html'

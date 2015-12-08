@@ -20,7 +20,7 @@ RUN sudo easy_install pip
 RUN sudo pip install --upgrade pip
 
 #Instalar la app
-RUN pip install -r requirements.txt
+RUN cd Empresas && pip install -r requirements.txt
 
 #Migraciones
 RUN python manage.py syncdb --noinput

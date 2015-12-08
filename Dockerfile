@@ -23,4 +23,4 @@ RUN sudo pip install --upgrade pip
 RUN cd Empresas && pip install -r requirements.txt
 
 #Migraciones
-RUN python manage.py syncdb --noinput
+RUN cd Empresas && python manage.py syncdb --noinput
